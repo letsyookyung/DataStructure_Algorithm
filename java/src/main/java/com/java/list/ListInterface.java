@@ -6,7 +6,7 @@ public interface ListInterface<E> {
     E remove(int i);
     boolean removeItem(E x);
     E get(int i);
-    E set(int i, E x);
+    void set(int i, E x);
     int indexOf(E x);
     int len();
     boolean isEmpty();

@@ -109,13 +109,12 @@ public class ArrayList<E> implements ListInterface<E> {
     }
 
     // 배열 리스트의 i번째 원소를 x로 대체하기
-    public E set(int index, E x) {
+    public void set(int index, E x) {
         if (index >= 0 && index <= numItems - 1) {
-            return item[index] = x;
+            item[index] = x;
         } else {
             /*예외처리*/
         }
-        return x;
     }
 
     // 원소x가 배열 리스트의 몇 번째 원소인지 알려주기
