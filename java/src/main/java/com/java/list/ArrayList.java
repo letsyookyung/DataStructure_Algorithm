@@ -73,13 +73,12 @@ public class ArrayList<E> implements ListInterface<E> {
     public E remove(int index) {
         if (isEmpty() || index < 0 || index > numItems - 1)
             return null;
-        else{
-                E tmp = item[index];
-                System.out.println(tmp);
-                for (int i = index; i <= numItems - 2; i++)
-                    item[i] = item[i + 1]; //좌시프트
-                numItems--;
-                return tmp;
+        else {
+            E tmp = item[index];
+            for (int i = index; i <= numItems - 2; i++)
+                item[i] = item[i + 1]; //좌시프트
+            numItems--;
+            return tmp;
             }
         }
 

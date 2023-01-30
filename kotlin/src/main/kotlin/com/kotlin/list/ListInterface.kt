@@ -2,17 +2,17 @@ package com.kotlin.list
 
 interface ListInterface<T>  {
 
-    fun <T> add(i: Int, x: T)
+    fun <T> add(index: Int, x: T)
 
     fun <T> append(x: T)
 
-    fun <T> remove(i: Int) : T
+    fun <T> remove(index: Int) : T?
 
     fun <T> removeItem(x: T) : Boolean
 
-    fun <T> get(i: Int) : T
+    fun <T> get(index: Int) : T?
 
-    fun <T> set(i: Int, x: T)
+    fun <T> set(index: Int, x: T)
 
     fun <T> indexOf(x: T) : Int
 
