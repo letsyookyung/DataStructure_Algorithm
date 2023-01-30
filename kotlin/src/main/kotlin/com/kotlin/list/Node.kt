@@ -1,4 +1,6 @@
 package com.kotlin.list
 
-class Node {
-}
+class Node(
+    var item: String?,
+    var next: Node? = null
+)
