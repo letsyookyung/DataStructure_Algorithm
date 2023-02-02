@@ -6,7 +6,7 @@ public class ArrayList<E> implements ListInterface<E> {
     private static final int DEFAULT_CAPACITY = 64;
 
     public ArrayList() { //생성자1
-        item = (E[]) new Object[DEFAULT_CAPACITY];
+        item = (E[]) new Object[DEFAULT_CAPACITY]; // Object타입의 배열을 생성한 다음 이를 E타입으로 타입 캐스팅 해주었다
         numItems = 0;
     }
 
@@ -36,9 +36,6 @@ public class ArrayList<E> implements ListInterface<E> {
 
         list.add(4, 1234);
         list.add(5, 1234);
-
-
-
 
         for (int i = 0; i < list.len(); i++) {
             System.out.printf("%d번째: %s", i, list.get(i));
