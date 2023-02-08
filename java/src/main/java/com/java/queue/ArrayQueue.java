@@ -6,6 +6,20 @@ public class ArrayQueue<E> implements QueueInterface<E> {
 	private static final int DEFAULT_CAPACITY = 64;
 	private final E ERROR = null;
 
+	public ArrayQueue() {
+		queue = (E[]) new Object[DEFAULT_CAPACITY];
+		front = 0;
+		tail = DEFAULT_CAPACITY-1;
+		numItems = 0;
+	}
+
+	public ArrayQueue(int n) {
+		queue = (E[]) new Object[n];
+		front = 0;
+		tail = n-1;
+		numItems = 0;
+	}
+
 
 	public static void main(String[] args) {
 		ArrayQueue<Integer> q = new ArrayQueue<>(8);
@@ -49,20 +63,6 @@ public class ArrayQueue<E> implements QueueInterface<E> {
 
 
 
-	}
-
-	public ArrayQueue() {
-		queue = (E[]) new Object[DEFAULT_CAPACITY];
-		front = 0;
-		tail = DEFAULT_CAPACITY-1;
-		numItems = 0;
-	}
-
-	public ArrayQueue(int n) {
-		queue = (E[]) new Object[n];
-		front = 0;
-		tail = n-1;
-		numItems = 0;
 	}
 
 	@Override

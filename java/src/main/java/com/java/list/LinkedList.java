@@ -128,12 +128,12 @@ public class LinkedList<E> implements ListInterface<E> {
         }
     }
 
-    public final int NOT_FOUND = -1234;
+    public static final int NOT_FOUND = -1234;
     @Override
     public int indexOf(E x) {
         Node<E> currNode = head;
         int i;
-        for (i=0 ; i < numItems-1; i++) {
+        for (i = 0 ; i < numItems ; i++) {
             currNode = currNode.next;
             if (((Comparable)(currNode.item)).compareTo(x) == 0) {
                 return i;

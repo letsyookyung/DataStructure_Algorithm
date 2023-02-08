@@ -8,6 +8,7 @@ public class AVLTree implements IndexInterface<AVLNode> {
 		root = NIL;
 	}
 
+
 	public static void main(String[] args) {
 		AVLTree avltree = new AVLTree();
 
