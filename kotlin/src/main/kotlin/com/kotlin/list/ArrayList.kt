@@ -4,8 +4,7 @@ package com.kotlin.list
 class ArrayList (
     sizeOfArray: Int = 64
 ) : ListInterface {
-
-    var item: Array<String?>
+    private var item: Array<String?>
     private var numItems: Int = 0
     private val sizeOfArray = 64
 

@@ -17,7 +17,6 @@ public class Heap<E extends Comparable> implements PQInterface<E> {
 
 	@Override
 	public void insert(E newItem) throws PQException {
-
 		if (numItems < A.length) {
 			A[numItems] = newItem;
 			percolateUp(numItems);
@@ -28,7 +27,7 @@ public class Heap<E extends Comparable> implements PQInterface<E> {
 	// 스며오르기
 	public void percolateUp(int i) {
 		int parent = (i-1)/2;
-		if (parent>0 && A[i].compareTo(A[parent])>0) { //비교
+		if (parent >= 0 && A[i].compareTo(A[parent])>0) { //비교
 			E tmp = A[i];
 			A[i] = A[parent];
 			A[parent] = tmp;
@@ -42,8 +41,8 @@ public class Heap<E extends Comparable> implements PQInterface<E> {
 		if (!isEmpty()) {
 			E maxElement = A[0];
 			A[0] = A[numItems - 1];
-			percolateDown(0);
 			numItems--;
+			percolateDown(0);
 			return maxElement;
 		} else throw new PQException("HeapErr: DeleteMax()-Underflow");
 

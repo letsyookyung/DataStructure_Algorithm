@@ -1,7 +1,7 @@
 package com.kotlin.list
 
-class LinkedList : ListInterface {
-    private var numItems: Int = 0
+open class LinkedList : ListInterface {
+    var numItems: Int = 0
     private var head: Node
     private lateinit var prevNode: Node
     private lateinit var currNode: Node
@@ -79,7 +79,7 @@ class LinkedList : ListInterface {
     private fun getNode(index: Int) : Node? {
         if (index in -1 until numItems) {
             currNode = head
-            for (i in 0 .. index step 1) {
+            for (i in 0 .. index step 1) { //찾고자하는 인덱스까지 가서 return
                 currNode = currNode.next!!
             }
             return currNode

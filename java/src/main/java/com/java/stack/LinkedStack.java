@@ -24,10 +24,6 @@ public class LinkedStack<E> implements StackInterface<E> {
 		s.popAll();
 
 		System.out.println(s.isEmpty());
-
-
-
-
 	}
 
 
