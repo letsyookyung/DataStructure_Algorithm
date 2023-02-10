@@ -93,7 +93,7 @@ public class AdvancedSorting {
 	}
 
 
-	public void qSort(int p, int r) {
+	public void qSort(int p, int r) { // 마지막 자리의 원소부터 시작하기
 		if (p < r) {
 			int q = partition(p, r); // 새로운 피봇 등장
 			qSort(p, q - 1); // 왼쪽도 동일하게 partition 돌리고, 더이상 돌릴게 없어진 상태면
@@ -111,7 +111,7 @@ public class AdvancedSorting {
 			if (A[j] < x) { //피봇보다 작은게 나타나면,
 				i++; // 왼쪽배열 한칸 늘리고,
 				tmp = A[i]; // 작은게 나타난 j번째 애랑 스왑
-				A[i] = A[j];
+				A[i] = A[j];의
 				A[j] = tmp;
 			}
 		}

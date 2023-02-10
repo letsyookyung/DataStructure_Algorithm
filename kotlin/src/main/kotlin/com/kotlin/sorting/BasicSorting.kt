@@ -3,7 +3,7 @@ package com.kotlin.sorting
 class BasicSorting(private val arr: IntArray) {
 
     // 삽입 정렬
-    fun selectionSort(): IntArray{
+    fun selectionSort(): IntArray {
         var largestIndex: Int
         var tmp: Int
 
@@ -21,7 +21,7 @@ class BasicSorting(private val arr: IntArray) {
 
     private fun theLargest(lastIndex: Int): Int {
         var largestIndex: Int = 0
-        for (i in 0 .. lastIndex step 1) {
+        for (i in 0..lastIndex step 1) {
             if (arr[i] > arr[largestIndex]) {
                 largestIndex = i
             }
@@ -35,8 +35,8 @@ class BasicSorting(private val arr: IntArray) {
         var tmp: Int
         var last = arr.size
 
-        for (k in 0 ..  arr.size) {
-            for (i in 0 ..  last - 2 step 1) {
+        for (k in 0..arr.size) {
+            for (i in 0..last - 2 step 1) {
                 if (arr[i] > arr[i + 1]) {
                     tmp = arr[i]
                     arr[i] = arr[i + 1]
@@ -54,12 +54,13 @@ class BasicSorting(private val arr: IntArray) {
         for (i in 1 until arr.size step 1) {
             var k = i - 1
             var newItem = arr[i]
-            while (k >= 0 && arr[k] > newItem ) {
-                arr[k+1] = arr[k]
+            while (k >= 0 && arr[k] > newItem) {
+                arr[k + 1] = arr[k]
                 k--
             }
-            arr[k+1] = newItem
+            arr[k + 1] = newItem
         }
+        return arr
     }
 
 

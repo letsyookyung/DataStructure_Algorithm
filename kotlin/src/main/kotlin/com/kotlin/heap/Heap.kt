@@ -55,7 +55,7 @@ class Heap(sizeOfArray: Int = 6) : PQInterface {
     }
 
 
-    private fun percolateDown(i: Int) {
+    fun percolateDown(i: Int) {
         var tmp = 0
         var child = (2 * i )+ 1
         val rightChild = (2 * i) + 2
