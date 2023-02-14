@@ -111,7 +111,7 @@ public class AdvancedSorting {
 			if (A[j] < x) { //피봇보다 작은게 나타나면,
 				i++; // 왼쪽배열 한칸 늘리고,
 				tmp = A[i]; // 작은게 나타난 j번째 애랑 스왑
-				A[i] = A[j];의
+				A[i] = A[j];
 				A[j] = tmp;
 			}
 		}

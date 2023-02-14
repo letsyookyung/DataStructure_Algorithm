@@ -31,7 +31,7 @@ public class BFS {
 		queue.add(startVertex); // 시작 vertex  enqueue
 		System.out.print("시작 ");
 
-		while (visited.size() <= graph.size() - 1) { // visited list가 전체 vertex 개수와 같아질 때 까지
+		while (!queue.isEmpty()) { // visited list가 전체 vertex 개수와 같아질 때 까지
 			int vertex = queue.get(0); // dequeue 꺼내서 작업 진행할 vertex 지정
 
 			if (!graph.get(vertex).visited) {

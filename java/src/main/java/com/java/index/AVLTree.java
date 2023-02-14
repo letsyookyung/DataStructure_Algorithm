@@ -134,8 +134,7 @@ public class AVLTree implements IndexInterface<AVLNode> {
 		int type;
 		if (tNode.left == NIL) {
 			return new returnPair(tNode.item, tNode.right); // 리프 노드인 경우 return ->
-		}
-		else {
+		} else {
 			returnPair rPair = deleteMinItem(tNode.left); // <- 여기로 return 값 나옴ㄷㄷ
 			tNode.left = rPair.node; // 재귀 들어간 만큼 반복 덮어씌우기
 			tNode.height = 1 + Math.max(tNode.right.height, tNode.left.height);

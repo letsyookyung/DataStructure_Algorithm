@@ -1,8 +1,5 @@
 package com.java.hashTable;
 
-
-import com.java.list.Node;
-
 public class ArrayHashTable implements IndexInterface<Integer> {
 	private Integer table[];
 	int numItems;
@@ -40,7 +37,7 @@ public class ArrayHashTable implements IndexInterface<Integer> {
 
 
 	private int hash(int i, Integer x) {
-		return (x + 1) % table.length;
+		return (x + i) % table.length;
 	}
 
 

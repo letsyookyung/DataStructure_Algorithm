@@ -3,17 +3,9 @@ package com.kotlin.stack
 class ArrayStack (
     sizeOfArray: Int = 6
 ) : StackInterface {
-    private var stack: Array<Int?>
-    private var topIndex: Int
+    private var stack: Array<Int?> = arrayOfNulls(sizeOfArray)
+    private var topIndex: Int = -1
     private val error = -12345
-    private var sizeOfArray = 6
-
-    // 생성자
-    init {
-        stack = arrayOfNulls(sizeOfArray)
-        topIndex = -1
-        this.sizeOfArray = sizeOfArray
-    }
 
 
     // push : 배열 마지막에 아이템 추가
@@ -23,7 +15,6 @@ class ArrayStack (
         } else {
             stack[++topIndex] = newItem
         }
-
     }
 
     // pop : 배열 마지막 아이템 return 후 삭제

@@ -76,7 +76,7 @@ open class LinkedList : ListInterface {
         return null
     }
     
-    private fun getNode(index: Int) : Node? {
+    fun getNode(index: Int) : Node? {
         if (index in -1 until numItems) {
             currNode = head
             for (i in 0 .. index step 1) { //찾고자하는 인덱스까지 가서 return
@@ -95,7 +95,6 @@ open class LinkedList : ListInterface {
 
 
     // 원소x가 배열 리스트의 몇 번째 원소인지 알려주기
-    private val NOT_FOUND = -12345
     override fun indexOf(x: String) : Int {
         currNode = head
         for (i in 0 until numItems step 1) {
@@ -122,6 +121,11 @@ open class LinkedList : ListInterface {
     override fun clear() {
         head = Node(null, null)
         numItems = 0
+    }
+
+
+    companion object {
+        val NOT_FOUND = -12345
     }
 
 

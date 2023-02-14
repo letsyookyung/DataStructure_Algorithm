@@ -4,17 +4,14 @@ package com.kotlin.queue
 class ArrayQueue (
     sizeOfArray: Int = 6
 ) : QueueInterface {
-    private var queue: Array<String?>
+    private var queue: Array<String?> = arrayOfNulls(sizeOfArray)
     private var front: Int
     private var tail: Int
     private var numItems: Int
     private val error = -12345
-    private var sizeOfArray = 6
 
     // 생성자
     init {
-        this.sizeOfArray = sizeOfArray
-        queue = arrayOfNulls(sizeOfArray)
         front = 0
         tail = sizeOfArray - 1
         numItems = 0
@@ -39,7 +36,7 @@ class ArrayQueue (
         if (isEmpty()) {
             println("queue empty")
         }
-        var queueFront = queue[front]
+        val queueFront = queue[front]
         front = (front+1) % queue.size
         --numItems
         return queueFront
@@ -57,9 +54,9 @@ class ArrayQueue (
     }
 
     override fun dequeueAll() {
-        queue = arrayOfNulls(sizeOfArray)
+        queue = arrayOfNulls(queue.size)
         front = 0
-        tail = sizeOfArray - 1
+        tail = queue.size - 1
         numItems = 0
     }
 

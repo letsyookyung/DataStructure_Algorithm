@@ -100,7 +100,7 @@ public class BinarySearchTree implements IndexInterface<TreeNode> {
 		} else if (tNode.right == null) {
 			return tNode.left;
 		} else {
-			returnPair rPair = deleteMinItem(tNode.right); // case 3: 오른쪽에서 가장 작은 값 찾아서 메꾸면 되니깐
+			ReturnPair rPair = deleteMinItem(tNode.right); // case 3: 오른쪽에서 가장 작은 값 찾아서 메꾸면 되니깐
 			tNode.key = rPair.key;
 			tNode.right = rPair.node;
 			return tNode;
@@ -108,12 +108,11 @@ public class BinarySearchTree implements IndexInterface<TreeNode> {
 	}
 
 
-	private returnPair deleteMinItem(TreeNode tNode) {
+	private ReturnPair deleteMinItem(TreeNode tNode) {
 		if (tNode.left == null) {
-			return new returnPair(tNode.key, tNode.right); // 리프 노드인 경우 return ->
-		}
-		else {
-			returnPair rPair = deleteMinItem(tNode.left); // <- 여기로 return 값 나옴ㄷㄷ
+			return new ReturnPair(tNode.key, tNode.right); // 리프 노드인 경우 return ->
+		} else {
+			ReturnPair rPair = deleteMinItem(tNode.left); // <- 여기로 return 값 나옴ㄷㄷ
 			tNode.left = rPair.node; // 재귀 들어간 만큼 반복 덮어씌우기
 			rPair.node = tNode; // 재귀 들어간 만큼 반복 덮어씌우기
 			return rPair;
@@ -121,10 +120,10 @@ public class BinarySearchTree implements IndexInterface<TreeNode> {
 	}
 
 
-	private class returnPair {
+	private static class ReturnPair {
 		private Comparable key;
 		private TreeNode node;
-		private returnPair(Comparable it, TreeNode nd) {
+		private ReturnPair(Comparable it, TreeNode nd) {
 			key = it;
 			node = nd;
 		}
