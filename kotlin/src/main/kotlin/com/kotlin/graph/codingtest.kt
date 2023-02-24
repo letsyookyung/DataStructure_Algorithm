@@ -20,45 +20,67 @@ fun main(args: Array<String>): Unit = with(BufferedReader(InputStreamReader(Syst
             graph[k] = edgesList
         }
     }
+
+    graph.forEach { (k, v) -> v.sort() }
     println(graph)
 
-    // 맵 돌려서 value sorting
-    graph.forEach { (k, v) -> v.sort() }
+    // dfs
+    val stack = mutableListOf<Int>()
+    val visited = mutableListOf<Int>()
+    println(dfs(graph, start, stack, visited, vertexs))
 
     // bfs
-    bfs(graph, start, vertexs)
+    println(bfs(graph, start, vertexs))
 
-    // dfs
+
 
 }
 
 
-fun bfs(graph: HashMap<Int, ArrayList<Int>>, start: Int, vertexs: Int): Array<Int> {
-    var queue = emptyArray<Int>()
-    val visited = emptyArray<Int>()
+fun dfs(graph: HashMap<Int, ArrayList<Int>>, vertex: Int, stack: MutableList<Int>, visited: MutableList<Int>, vertexs: Int): MutableList<Int> {
+    stack.add(vertex)
 
-    // 1.큐의 start 넣기
-    queue.plus(start)
-
-    // 2.모든 vertex들을 visiting 할 때 까지 최대가
     while (visited.size < vertexs) {
-        val vertex = queue[0]
-        queue = queue.sliceArray(1 ..queue.lastIndex-1)
 
-        for (i in 0 until (graph[vertex]!!.size)) {
-            val now = graph[vertex]!![i]
-            if (!visited.contains(now) && !queue.contains(now)) {
-                queue.plus(now)
+        val popped = stack[stack.lastIndex]
+        stack.removeAt(stack.lastIndex)
+        visited.add(popped)
+
+        if (graph.contains(vertex)) {
+            for (i in 0 until (graph[popped]!!.size)) {
+                val nowVertex = graph[popped]!![i]
+                if (!visited.contains(nowVertex) && !stack.contains(nowVertex)) {
+                    dfs(graph, nowVertex, stack, visited, vertexs)
+                }
             }
         }
-        visited.plus(vertex)
     }
-
     return visited
-    // 3.dequeue 꺼낸 것 = 현재 vertex
-
-    // 4.이미 visit했거나, 이미 queue에 쌓여 있는 것 빼고, 큐의 쌓기
-
-    // 5.현재 vertex visited[]에 추가하기
-
 }
+
+
+fun bfs(graph: HashMap<Int, ArrayList<Int>>, start: Int, vertexs: Int): MutableList<Int> {
+    val queue = mutableListOf<Int>()
+    val visited = mutableListOf<Int>()
+    var vertex: Int
+
+    queue.add(start)
+
+    while (visited.size < vertexs ) {
+        vertex = queue[0]
+        queue.removeAt(0)
+        if (graph.contains(vertex)) {
+            for (i in 0 until (graph[vertex]!!.size)) {
+                val nowVertex = graph[vertex]!![i]
+                if (!visited.contains(nowVertex) && !queue.contains(nowVertex)) {
+                    queue.add(nowVertex)
+                }
+            }
+        }
+        visited.add(vertex)
+    }
+    return visited
+}
+
+
+
